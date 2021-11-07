@@ -4,7 +4,9 @@ namespace App\Controller;
 
 
 use App\Logic\ActivityLoader;
+use App\Logic\Pagination;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,16 +23,23 @@ class LandingController extends AbstractController
     }
 
     /**
-    * @Route("/admin/admin")
-    */
-    public function admin(): Response
+     * @Route("/admin/admin")
+     * @param Request $request
+     * @return Response
+     * @throws \Exception
+     */
+    public function admin(Request $request): Response
     {
-        $data = (new ActivityLoader())->get();
+        $page = $request->query->get('page', 1);
+
+        $limit = 50;
+
+        $data = (new ActivityLoader())->get($page, $limit);
 
         return $this->render('admin/admin.html.twig', [
-            'page' => 1,
-            'limit' => 50,
-            'activityData' => print_r($data, true)
+            'page' => $page,
+            'limit' => $limit,
+            'activityData' => (new Pagination())->getData($data['result']['data'] ?? [], $page, $limit) ?? []
         ]);
     }
 }

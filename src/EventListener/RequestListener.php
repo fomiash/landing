@@ -14,7 +14,11 @@ class RequestListener
         if (!$event->isMainRequest()) {
             return;
         }
-        (new ActivityTransfer())->get(parse_url($_SERVER['REQUEST_URI'])['path'], new \DateTime('NOW'));
+        try {
+            (new ActivityTransfer())->get(parse_url($_SERVER['REQUEST_URI'])['path'], new \DateTime('NOW'));
+        } catch (\Throwable $exception) {
+            // Здесь нужно сохранять в лог
+        }
     }
 
 }

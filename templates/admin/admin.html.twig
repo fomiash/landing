@@ -2,10 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Get activity - page{{ page }}, limit {{ limit }}</title>
+    <title>Get activity - page {{ page }}, limit {{ limit }}</title>
 </head>
 <body>
-Get activity - page{{ page }}, limit {{ limit }} <br>
-{{ activityData }}
+<h3>Get activity - page {{ page }}, limit {{ limit }}</h3>
+<ul>
+    <table>
+        <tr>
+            <td>URL</td>
+            <td><b>VISITS</b></td>
+            <td>LAST VISIT AT</td>
+        </tr>
+    {% for  data in activityData.data %}
+        <tr>
+        <td>{{ data.url }}</td>
+        <td><b>{{ data.visits }}</b></td>
+        <td>{{ data.last_visit_at }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</ul>
+ <br>
+
+{% if activityData.previous_page %}
+    <p><a href="{{ activityData.previous_page }}"><button>Previous page</button></a></p>
+{% endif %}
+{% if activityData.next_page %}
+    <p><a href="{{ activityData.next_page }}"><button>Next page</button></a></p>
+{% endif %}
 </body>
 </html>
