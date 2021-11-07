@@ -10,6 +10,10 @@ class ActivityLoader extends BaseActivityQuery
 
          $result = $this->appealPostApi('get', $id, ['page'=> $page, 'limit' => $limit]);
 
+         if(is_string($result) && trim($result[0]) === '{') {
+             $result = json_decode($result, true);
+         }
+
          if(!is_array($result)) {
              throw new \Exception('Wrong API response. Data format error.');
          }
