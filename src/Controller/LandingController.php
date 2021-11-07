@@ -23,7 +23,7 @@ class LandingController extends AbstractController
     }
 
     /**
-     * @Route("/admin/admin")
+     * @Route("/admin/activity")
      * @param Request $request
      * @return Response
      * @throws \Exception
