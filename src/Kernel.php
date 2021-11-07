@@ -27,12 +27,6 @@ class Kernel extends BaseKernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        try {
-           $activityLog = (new ActivityTransfer())->get(parse_url($_SERVER['REQUEST_URI'])['path'], new \DateTime('NOW'));
-        } catch (\Throwable $e) {
-            var_dump($e->getMessage());
-        }
-
         $routes->import('../config/{routes}/'.$this->environment.'/*.yaml');
         $routes->import('../config/{routes}/*.yaml');
 
