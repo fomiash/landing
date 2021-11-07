@@ -8,8 +8,8 @@ class Pagination
 {
       public function getData(array $data, int $page = 1, int $limit = 50)
       {
-          foreach($data as $d) {
-              $data[$d]['url'] = rtrim($data[$d]['url'], ' /');
+          foreach($data as $key => $d) {
+              $data[$key]['url'] = rtrim($d['url'], ' /');
           }
           return [
               'previous_page' => $page > 1 ? $this->generatePageURL($page - 1) : false,
