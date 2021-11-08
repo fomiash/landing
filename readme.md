@@ -11,7 +11,7 @@ $ composer install --no-scripts
 
 Изменение URL микросервиса `activity`:
  
- ```App\Logic\BaseActivityQuery::ACTIVITY_URL ```
+ ```App\Logic\ActivityApiQuery::ACTIVITY_URL ```
  
  Пробный запуск (из папки ``public``): 
  
