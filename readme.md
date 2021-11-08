@@ -2,6 +2,13 @@
 
 PHP version >= 7.3
 
+Установка:
+
+
+```bash
+$ composer install --no-scripts
+```
+
 Изменение URL микросервиса `activity`:
  
  ```App\Logic\BaseActivityQuery::ACTIVITY_URL ```
