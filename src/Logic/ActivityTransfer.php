@@ -4,7 +4,7 @@
 namespace App\Logic;
 
 
-class ActivityTransfer extends BaseActivityQuery
+class ActivityTransfer extends ActivityApiQuery
 {
     public function get(string $url, \DateTimeInterface $date): array
     {

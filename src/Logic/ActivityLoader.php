@@ -2,7 +2,7 @@
 
 namespace App\Logic;
 
-class ActivityLoader extends BaseActivityQuery
+class ActivityLoader extends ActivityApiQuery
 {
      public function get(int $page = 1, int $limit = 50): array
      {
