@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LandingController extends AbstractController
 {
+    const DEFAULT_LIMIT = 50;
+
     /**
      * @Route("/")
      */
@@ -32,7 +34,7 @@ class LandingController extends AbstractController
     {
         $page = $request->query->get('page', 1);
 
-        $limit = 50;
+        $limit = self::DEFAULT_LIMIT;
 
         $data = (new ActivityLoader())->get($page, $limit);
 
