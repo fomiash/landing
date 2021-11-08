@@ -45,3 +45,4 @@ class LandingController extends AbstractController
         ]);
     }
 }
+
