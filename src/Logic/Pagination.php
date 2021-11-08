@@ -21,7 +21,7 @@ class Pagination
       }
 
       public function generatePageURL(int $number) {
-          return '/admin/admin/?page=' . $number;
+          return '/admin/activity/?page=' . $number;
       }
 }
 
