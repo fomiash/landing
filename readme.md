@@ -2,16 +2,11 @@
 
 PHP version >= 7.3
 
-Установка:
-
-
-```bash
-$ composer install --no-scripts
-```
+Отчет посещений любой страницы по *json-rpc 2.0* в другой микросервис.
 
 Изменение URL микросервиса `activity`:
  
- ```App\Logic\ActivityApiQuery::ACTIVITY_URL ```
+ ```App\Logic\BaseActivityQuery::ACTIVITY_URL ```
  
  Пробный запуск (из папки ``public``): 
  
@@ -19,10 +14,4 @@ $ composer install --no-scripts
  $ php -S localhost:8001
  ```
 
-Если локально (или по указанному URL) запущен проект `activity`, то на странице ```/admin/activity/``` появится отчет посещений.
-
-----------------
-
-Foma Tuturov
-
-fomiash@yandex.ru
+Если локально (или по указанному URL) запущен проект [activity](https://github.com/fomiash/activity) , то на странице ```/admin/activity/``` появится отчет посещений.
